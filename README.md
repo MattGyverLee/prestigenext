@@ -44,3 +44,18 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## Start:
+npx create-react-app prestigen --template typescript
+npm i -D @craco/craco
+Add craco config
+npm i -g yarn
+yarn add electron electron-is-dev
+yarn add concurrently wait-on
+
+
+Package.json notes:
+Delay to work around startup problem:
+https://stackoverflow.com/questions/46561608/wait-seconds-before-running-next-task-on-scripts-package-jscon
+
