@@ -59,3 +59,5 @@ Package.json notes:
 Delay to work around startup problem:
 https://stackoverflow.com/questions/46561608/wait-seconds-before-running-next-task-on-scripts-package-jscon
 
+MUI incompatibility with react 18 (https://stackoverflow.com/questions/71713111/mui-installation-doesnt-work-with-react-18)
+npm install @mui/material --legacy-peer-deps 

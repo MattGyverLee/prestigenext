@@ -20,6 +20,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "paths": {
+    "react-sizeme": [
+      "node_modules/react-sizeme/react-sizeme.d.ts"
+    ]
+  },
   "include": [
     "src"
   ]

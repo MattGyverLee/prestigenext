@@ -20,3 +20,7 @@ typescript: {
       
     },
   },
+
+
+  npm install @mui/core --legacy-peer-deps 
+  yarn add @mui/core --strict-peer-dependencies 
