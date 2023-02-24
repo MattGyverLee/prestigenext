@@ -28,7 +28,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.electron.js\" \"wait-on http://127.0.0.1:3000 && cypress run",
+    "cyp": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.electron.js\" \"wait-on http://127.0.0.1:3000 && cypress open",
     "electron-dev": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.electron.js\" \"wait-on http://127.0.0.1:3000 && electron .",
     "web-dev": "env-cmd -f .env.web craco start --config craco.config.web.js"
   },
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "^7.0.0-alpha.5"
+    "@craco/craco": "^7.0.0-alpha.5",
+    "cypress": "^12.6.0"
   }
 }
