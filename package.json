@@ -1,6 +1,7 @@
 {
   "name": "prestige",
-  "version": "0.1.0",
+  "version": "0.4.0",
+  "main": "public/electron.js",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -10,17 +11,31 @@
     "@types/node": "^16.18.12",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "electron": "^23.1.1",
+    "electron-is-dev": "^2.0.0",
+    "env-cmd": "^10.1.0",
+    "node-polyfill-webpack-plugin": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "sleep": "^6.3.0",
     "typescript": "^4.9.5",
+    "wait-on": "^7.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "DON'T craco eject"
+    "electron-only": "wait-on tcp:3000 && electron .",
+    "electron-dev1": "concurrently -k \"craco start --config craco.config.js\" \"npm:electron\"",
+    "electron-dev2": "concurrently -k \"BROWSER=none craco start\" \"npm:electron\"",
+    "electron-dev3": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.js\" \"wait-on tcp:3000 && electron .",
+    "delayed-client": "node -e \"setTimeout(() => process.exit(0), 15000)\" && electron .",
+    "electron-dev4": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.js\" \"npm:delayed-client"
+    
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +56,6 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "^7.0.0"
+    "@craco/craco": "^7.0.0-alpha.5"
   }
 }
