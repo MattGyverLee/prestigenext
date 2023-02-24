@@ -29,13 +29,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "electron-only": "wait-on tcp:3000 && electron .",
-    "electron-dev1": "concurrently -k \"craco start --config craco.config.js\" \"npm:electron\"",
-    "electron-dev2": "concurrently -k \"BROWSER=none craco start\" \"npm:electron\"",
-    "electron-dev3": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.js\" \"wait-on tcp:3000 && electron .",
-    "delayed-client": "node -e \"setTimeout(() => process.exit(0), 15000)\" && electron .",
-    "electron-dev4": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.js\" \"npm:delayed-client"
-    
+    "electron-dev": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.electron.js\" \"wait-on http://127.0.0.1:3000 && electron .",
+    "web-dev": "env-cmd -f .env.web craco start --config craco.config.web.js"
   },
   "eslintConfig": {
     "extends": [
