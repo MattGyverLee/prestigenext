@@ -10,6 +10,7 @@
     "@devexpress/dx-react-grid-material-ui": "^4.0.3",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/base": "^5.0.0-alpha.118",
@@ -29,7 +30,14 @@
     "electron": "^23.1.1",
     "electron-is-dev": "^2.0.0",
     "env-cmd": "^10.1.0",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static-electron": "^2.0.3",
+    "ffprobe-static-electron": "^2.0.2",
+    "file-url": "^4.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^11.1.0",
     "node-polyfill-webpack-plugin": "^2.0.1",
+    "notistack": "^2.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.11.2",
@@ -41,12 +49,16 @@
     "typescript": "^4.9.5",
     "wait-on": "^7.0.1",
     "wavesurfer.js": "^6.4.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xml2js": "^0.4.23"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
   },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "debug": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.electron.js\"", 
+    "debug": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.electron.js\"",
     "test": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.electron.js\" \"wait-on http://127.0.0.1:3000 && cypress run",
     "cyp": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.electron.js\" \"wait-on http://127.0.0.1:3000 && cypress open",
     "electron-dev": "env-cmd -f .env.electron concurrently \"craco start --config craco.config.electron.js\" \"wait-on http://127.0.0.1:3000 && electron .",
